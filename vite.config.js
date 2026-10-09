@@ -6,8 +6,9 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: path.resolve(__dirname, '../Orogen/client/dist'),
+    outDir: 'dist',
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1600,
   },
   server: {
     port: 5173,
