@@ -131,7 +131,7 @@ const ThemeProfileMenu = () => {
                 </Button>
               )
             ) : (
-              <HStack spacing={2}>
+              <VStack spacing={2.5} align="stretch" width="full">
                 <Button
                   size="sm"
                   bg="rgba(232, 185, 120, 0.12)"
@@ -157,7 +157,7 @@ const ThemeProfileMenu = () => {
                 >
                   Create Account
                 </Button>
-              </HStack>
+              </VStack>
             )}
 
             {user && (

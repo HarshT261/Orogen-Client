@@ -10,10 +10,27 @@ import {
   VStack,
 } from '@chakra-ui/react'
 
+const EyeIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+)
+
+const EyeOffIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+    <path d="M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+    <line x1="2" x2="22" y1="2" y2="22" />
+  </svg>
+)
+
 const Signup = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { signup } = useAuth()
@@ -176,20 +193,43 @@ const Signup = () => {
               >
                 Password
               </Text>
-              <Input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                required
-                bg="rgba(8, 17, 15, 0.6)"
-                color="var(--text-main)"
-                borderColor="var(--surface-line)"
-                borderRadius="xl"
-                size="lg"
-                _focus={{ borderColor: 'var(--accent)', boxShadow: '0 0 0 1px var(--accent)' }}
-                _placeholder={{ color: 'var(--text-muted)' }}
-              />
+              <Box position="relative">
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  required
+                  bg="rgba(8, 17, 15, 0.6)"
+                  color="var(--text-main)"
+                  borderColor="var(--surface-line)"
+                  borderRadius="xl"
+                  size="lg"
+                  pr="3rem"
+                  _focus={{ borderColor: 'var(--accent)', boxShadow: '0 0 0 1px var(--accent)' }}
+                  _placeholder={{ color: 'var(--text-muted)' }}
+                />
+                <Box
+                  as="button"
+                  type="button"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  onClick={() => setShowPassword(!showPassword)}
+                  position="absolute"
+                  right="0.75rem"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  color="var(--text-soft)"
+                  _hover={{ color: '#e8b978' }}
+                  p={1.5}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  cursor="pointer"
+                  zIndex={2}
+                >
+                  {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                </Box>
+              </Box>
 
               {/* Password instructions under input box */}
               <Box
