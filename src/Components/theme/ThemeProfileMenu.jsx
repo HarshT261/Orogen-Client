@@ -134,9 +134,10 @@ const ThemeProfileMenu = () => {
               <HStack spacing={2}>
                 <Button
                   size="sm"
-                  bg="rgba(255, 255, 255, 0.12)"
-                  color="#ffffff"
-                  _hover={{ bg: 'rgba(255, 255, 255, 0.2)' }}
+                  bg="rgba(232, 185, 120, 0.12)"
+                  color="#e8b978"
+                  border="1px solid rgba(232, 185, 120, 0.3)"
+                  _hover={{ bg: 'rgba(232, 185, 120, 0.22)', borderColor: '#e8b978' }}
                   width="full"
                   borderRadius="xl"
                   fontWeight="600"
@@ -146,15 +147,15 @@ const ThemeProfileMenu = () => {
                 </Button>
                 <Button
                   size="sm"
-                  bg="rgba(255, 255, 255, 0.16)"
-                  color="#ffffff"
-                  _hover={{ bg: 'rgba(255, 255, 255, 0.24)' }}
+                  bg="linear-gradient(135deg, #e8b978 0%, #c49450 100%)"
+                  color="#0b1512"
+                  _hover={{ bg: 'linear-gradient(135deg, #f5cc8a 0%, #d8a25c 100%)', transform: 'translateY(-1px)' }}
                   width="full"
                   borderRadius="xl"
                   fontWeight="700"
                   onClick={() => { setOpen(false); navigate('/signup') }}
                 >
-                  Sign Up
+                  Create Account
                 </Button>
               </HStack>
             )}
